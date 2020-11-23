@@ -4,22 +4,17 @@ var userName = readline.question(("Whats your name ? "));
 
 var score = 0;
 
-var index = 0;
+var sc =(score = 0);
 
+var a =0;
 
 var chalk = require('chalk');
 
-
-
-
 console.log(chalk.magenta("WELCOME " + userName.toUpperCase() + " TO GAME OF THRONES QUIZ ?"));
-
 
 console.log(chalk.green("RULES OF THE QUIZ ARE:"))
 console.log(chalk.green("1 : TO ENTER LEVEL 2 OF QUIZ ,YOU HAVE TO GIVE ATLEAST 3 CORRECT ANSWER "))
-
 console.log(chalk.green("2 : IF YOU DON'T GIVE ATLEAST THREE CORRECT ANSWER YOU HAVE TO PLAY LEVEL 1 AGAIN"))
-
 
 
 function play(question , answer){
@@ -27,15 +22,11 @@ function play(question , answer){
    console.log("Your answer is: ", userAnswer )
    if (userAnswer.toUpperCase() == answer.toUpperCase()){
      console.log(chalk.blue("Correct answer"))
-      score++;
+      sc++;
    } else {
      console.log(chalk.red("Oops,thats the wrong answer"))
    }
 }
-
-
-
-
 
 const queBankLevel1 = [
 	{
@@ -105,23 +96,22 @@ const queBankLevel2 = [
 	}
 ];
 
-for (var i=100;i<101 ;i--){
-   start();
-if (score>=3){
-  break; 
-}
-}
-
 function start(){
      level1()
-    if (score>=3){
+    if (sc>=3){
       console.log("LEVEL 2")   
-    }else{
-      level1()
+    }else if(sc<3){
+		level1()
+		sc = a;
     }
 }
 
-
+for (; ;){
+   start();
+if (sc>=3){
+  break; 
+}
+}
 
 level2();
 
@@ -147,7 +137,7 @@ var highScore = [
 
 {
   name: userName,
-  scor: score
+  scor: sc
 } ]
 
 
@@ -157,8 +147,8 @@ function highestScore(){
   }
   }
 
-  highestScore();
+highestScore();
 
 console.log(chalk.magenta("GREAT " + userName.toUpperCase() + " YOU DID A FANTASTIC JOB"))
 console.log("Your final score is : ",
- chalk.green(score))
+chalk.green(sc))
