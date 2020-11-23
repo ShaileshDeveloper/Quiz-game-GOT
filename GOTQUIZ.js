@@ -72,25 +72,6 @@ const queBankLevel1 = [
 	}
 ];
 
-
-
-function level1(){
-for (var i = 0; i< queBankLevel1.length ; i++){
-    var currentQuestions1 = queBankLevel1[i]
-    play(currentQuestions1.question,currentQuestions1.answer)   
-}
-}
-
-level1()
-
-
-
-var user = {
-  name:userName,
-  scor : score
-}
-
-
 const queBankLevel2 = [
 	{
 		question: `
@@ -124,27 +105,36 @@ const queBankLevel2 = [
 	}
 ];
 
-
-
-
-
-
-function level2(){
-  if (user.scor >= "3"){
-    console.log("CONGRATS YOU HAVE ENTERED LEVEL2")
-    questionBank2()  
-  } else {
-    console.log("SORRY TRY THE GAME OF THRONES QUIZ AGAIN")
-    level1()
-  }
+for (var i=100;i<101 ;i--){
+   start();
+if (score>=3){
+  break; 
+}
 }
 
-level2()
+function start(){
+     level1()
+    if (score>=3){
+      console.log("LEVEL 2")   
+    }else{
+      level1()
+    }
+}
 
-function questionBank2(){
+
+
+level2();
+
+function level2(){
 for (var i = 0; i< queBankLevel2.length ; i++){
   var currentQuestions2 = queBankLevel2[i]
   play(currentQuestions2.question, currentQuestions2.answer)
+}
+}
+function level1(){
+for (var i = 0; i< queBankLevel1.length ; i++){
+    var currentQuestions1 = queBankLevel1[i]
+    play(currentQuestions1.question,currentQuestions1.answer)   
 }
 }
 
@@ -158,7 +148,7 @@ var highScore = [
 {
   name: userName,
   scor: score
-}  ]
+} ]
 
 
 function highestScore(){
