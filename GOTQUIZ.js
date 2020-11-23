@@ -152,3 +152,5 @@ highestScore();
 console.log(chalk.magenta("GREAT " + userName.toUpperCase() + " YOU DID A FANTASTIC JOB"))
 console.log("Your final score is : ",
 chalk.green(sc))
+
+console.log(score);
